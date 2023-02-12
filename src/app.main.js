@@ -3,10 +3,13 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 import { AuthManager } from './Auth.Manager.js'
 
+import { SupabaseKey, SupabaseUrl } from './env.js'
+
+/* App Manager Class */
 class App {
    constructor() {
-     this.SupabaseUrl = 
-     this.SupabaseKey =
+     this.SupabaseUrl = SupabaseUrl
+     this.SupabaseKey = SupabaseKey
    }
    
    init() {
@@ -19,13 +22,14 @@ class App {
    }
    
    // function for fetching data
-   FetchData() {
-     console.log(this.supabase);
+   async FetchData() {
+     const { data: DATA, error } = await this.supabase
+              .from('Posts')
+              .select('*', {ascending: false})
    }
 }
 
+// initializing the app manager
 const app = new App()
 
 app.init()
-
-console.log(app.supabase);
