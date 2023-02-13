@@ -3,5 +3,7 @@ class StorageManager {
      
    }
    
-   
+   init(supabase) {
+     this.supabase = supabase
+   }
 }
