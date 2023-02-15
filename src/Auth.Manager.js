@@ -1,6 +1,6 @@
 export class AuthManager {
    constructor() {
-     
+     this.user
    }
    // initializing supabase sdk
    init(supabase) {
@@ -12,6 +12,7 @@ export class AuthManager {
    async CheckAuthState() {
      const { data: { user } } = await this.supabase.auth.getUser()
      
+        this.user = user
      // if user exists or not
      if (user == null) {
        this.UserIsNotLoggedIn()
@@ -27,5 +28,9 @@ export class AuthManager {
    //else
    UserIsNotLoggedIn() {
      console.log('not logged in');
+   }
+   
+   async SignUserIn() {
+     
    }
 }
