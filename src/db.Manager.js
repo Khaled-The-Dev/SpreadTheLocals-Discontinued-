@@ -13,6 +13,9 @@ export class DB {
      const { data: DATA, error } = await this.supabase
        .from('Posts')
        .select('*')
+       if (error) {
+         throw new Error('an error occurred')
+       }
      return DATA
    }
    

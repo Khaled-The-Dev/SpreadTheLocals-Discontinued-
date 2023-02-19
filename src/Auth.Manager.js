@@ -30,7 +30,16 @@ export class AuthManager {
      console.log('not logged in');
    }
    
-   async SignUserIn() {
-     
+   // signing in with email and password
+   
+   async SignUserInWithPassword(Args) {
+     /* Args is an object with two keys:
+     email: email
+     password: password
+     */
+      const { data, error } = await supabase.auth.signInWithPassword({
+       email: Args.email,
+       password: Args.password,
+    })
    }
 }
