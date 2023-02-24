@@ -9,7 +9,7 @@ clone the repo by running `git clone https://github.com/Khaled-The-Dev/SpreadThe
 
 head to [supabase.com](https://supabase.com)
 
-create a database and create a table named Posts and create 3 fields with the defualt ones `CreatedBy: varchar, Location: varchar, Description: varchar`
+create a database and create a table named Posts and create 3 fields with the defualt ones `CreatedBy: varchar, Location: varchar, Description: text`
 
 and create a env.js (i don't want an npm headache) file to setup your environment variables like this
 ```

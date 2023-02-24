@@ -30,6 +30,7 @@ class App {
      // storage initializing
      this.storageManger = new StorageManager()
      this.storageManger.init(this.supabase)
+     /* Functionality... */
      // fetching data on page load
      this.db.fetch()
    }

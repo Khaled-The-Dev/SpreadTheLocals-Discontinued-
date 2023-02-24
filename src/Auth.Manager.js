@@ -12,9 +12,8 @@ export class AuthManager {
    async CheckAuthState() {
      const { data: { user } } = await this.supabase.auth.getUser()
      
-        this.user = user
      // if user exists or not
-     if (user == null) {
+     if (!user) {
        this.UserIsNotLoggedIn()
      }else {
        this.UserIsLoggedIn()
@@ -28,18 +27,5 @@ export class AuthManager {
    //else
    UserIsNotLoggedIn() {
      console.log('not logged in');
-   }
-   
-   // signing in with email and password
-   
-   async SignUserInWithPassword(Args) {
-     /* Args is an object with two keys:
-     email: email
-     password: password
-     */
-      const { data, error } = await supabase.auth.signInWithPassword({
-       email: Args.email,
-       password: Args.password,
-    })
    }
 }
