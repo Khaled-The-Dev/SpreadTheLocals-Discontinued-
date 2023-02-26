@@ -5,6 +5,8 @@ import { AuthManager } from './Auth.Manager.js'
 
 import { StorageManager } from './Storage.Manager.js'
 
+import  ViewManager  from './View.Manager.js'
+
 import { DB } from './db.Manager.js'
 
 import { SupabaseKey, SupabaseUrl } from './env.js'
@@ -23,10 +25,9 @@ class App {
      // db initializing
      this.db = new DB()
      this.db.init(this.supabase)
-     // auth initializing
-     this.authManager = new AuthManager()
      
-     this.authManager.init(this.supabase)
+     // view management
+     this.viewManager = new ViewManager(this.supabase)
      // storage initializing
      this.storageManger = new StorageManager()
      this.storageManger.init(this.supabase)

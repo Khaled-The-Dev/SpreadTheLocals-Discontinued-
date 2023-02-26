@@ -12,9 +12,48 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
 </head>
 
 <body>
+  <nav class="navbar">
+  <a class="logo" href="#">Logo</a>
+  <div class="menu-icon">
+    <i class="fas fa-bars"></i>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Discover</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="#">Become a Advertiser</a></li>
+  </ul>
+  <div class="user-profile">
+    <a href="#">Login</a>
+    <a class="btn" href="#">Join</a>
+  </div>
+</nav>
+
+
+
+  <div id="user-div" style="display: none;">
+   <div class="post-container">
+  <div class="post-image">
+    <img src="https://placehold.it/300x200" alt="Post Image">
+  </div>
+  <div class="post-info">
+    <h2 class="post-title">Post Title</h2>
+    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod tortor eu ipsum consequat, vel consequat purus pharetra.</p>
+    <p class="post-address">123 Main St, Anytown USA</p>
+  </div>
+</div>
+
+</div>
+
+<button id="login-button">
+  Log in with Google
+</button>
+
   <script type="module" src="/src/app.main.js"></script>
+  <script src="/app/Navbar.js"></script>
 </body>
 </html>
