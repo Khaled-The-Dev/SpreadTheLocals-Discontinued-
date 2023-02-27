@@ -31,9 +31,10 @@ class App {
      // storage initializing
      this.storageManger = new StorageManager()
      this.storageManger.init(this.supabase)
+     
      /* Functionality... */
-     // fetching data on page load
-     this.db.fetch()
+     // this will determine the auth state and fetch data based it
+     this.db.DetermineAuthState()
    }
 }
 // initializing the app manager
