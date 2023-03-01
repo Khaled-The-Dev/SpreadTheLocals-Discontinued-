@@ -11,7 +11,7 @@ class ViewManager {
     this.loginButton.addEventListener('click', this.handleLoginClick.bind(this));
     // collect html elements
       this.loggedInElements = document.querySelectorAll('[data-logged-in="true"]');
-
+      this.loggedOutElements = document.querySelectorAll('[data-logged-in="false"]')
     // Check the user's login status
     this.refreshView();
   }
@@ -19,12 +19,18 @@ class ViewManager {
   this.loggedInElements.forEach(element => {
     element.style.display = 'block';
   });
+  this.loggedOutElements.forEach(element => {
+     element.style.display = 'none'
+  })
 }
 
   hideLoggedInElements() {
   this.loggedInElements.forEach(element => {
     element.style.display = 'none';
   });
+  this.loggedOutElements.forEach(element => {
+     element.style.display = 'block'
+  })
 }
   async handleLoginClick() {
     try {
