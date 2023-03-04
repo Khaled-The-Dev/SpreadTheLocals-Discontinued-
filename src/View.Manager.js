@@ -43,15 +43,17 @@ class ViewManager {
   }
   
   async refreshView() {
-    const user = await this.authManager.getCurrentUser();
-     console.log(user);
+    this.user = await this.authManager.getCurrentUser();
+     console.log(this.user);
      // check if user is logged in and show/hide elements accordingly
 
-    if (user.data.user) {
+    if (this.user.data.user) {
        this.showLoggedInElements()
     } else {
        this.hideLoggedInElements()
     }
+    
+    return this.user
   }
 }
 

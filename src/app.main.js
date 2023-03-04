@@ -38,6 +38,6 @@ class App {
    }
 }
 // initializing the app manager
-const app = new App()
+export const app = new App()
 
 app.init()
