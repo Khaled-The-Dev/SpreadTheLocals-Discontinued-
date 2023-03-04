@@ -1,7 +1,10 @@
 import {AuthManager} from './Auth.Manager.js'
+import {Parser} from '/lib/Parser.js'
+import {app} from './app.main.js'
 
 export class DB {
    constructor() {
+     this.parser = new Parser()
    }
    
    // init
@@ -13,11 +16,18 @@ export class DB {
    async DetermineAuthState() {
      
      // if the user is logged in this will be set to true
-     this.auth = new AuthManager(this.supabase)
-     const user = await this.auth.getCurrentUser()
+     this.user = await app.viewManager.refreshView()
      //this.authState = this.authReturn.user.data.user ? true : false
-     if(user.data.user) {
-       this.fetch()
+     if(this.user.data.user) {
+       // fetching data
+       this.data = await this.fetch()
+       // looping through it
+       this.data.forEach((item) => {
+         this.post = document.createElement('div')
+         this.post.className = 'post-container'
+         this.post.innerHTML = this.parser.Parse(item)
+         document.body.append(this.post)
+       })
      }else{
        return false
      }
