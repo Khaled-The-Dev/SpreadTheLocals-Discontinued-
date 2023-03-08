@@ -170,3 +170,45 @@ body {
 		.google-btn:hover {
 			background-color: #c23321;
 		}
+/* Style the form labels */
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  /* Style the form inputs */
+  input[type="text"],
+  textarea {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Style the file upload input */
+  input[type="file"] {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  /* Style the submit button */
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* Style the error message */
+  .error {
+    color: red;
+    margin-top: 5px;
+  }
