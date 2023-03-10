@@ -29,13 +29,13 @@
   </ul>
   <div class="user-profile">
     <a href="#">Login</a>
-    <a class="btn" href="#">Join</a>
+    <a class="btn" href="#" id="Post-Button" data-logged-in="true">Post</a>
   </div>
 </nav>
 
 
 
-  <div id="user-div" style="display: none;" data-logged-in="true">
+  <div id="user-div" style="display: none;" data-logged-in="true" data-Post="false">
    <div class="post-container">
   <div class="post-image">
     <img src="https://placehold.it/300x200" alt="Post Image">
@@ -48,10 +48,27 @@
 </div>
 
 </div>
+<div class="container" data-logged-in="false" data-Post="false">
+		<h1>Log-in</h1>
+		<a href="#" id="login-button" class="google-btn">Login with Google</a>
+	</div>
 
-<button id="login-button" data-logged-in="false" >
-  Log in with Google
-</button>
+<form method="POST" enctype="multipart/form-data" data-Post="true">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" required></textarea>
+
+  <label for="location">Location:</label>
+  <input type="text" id="location" name="location" required>
+
+  <label for="image">Image (300x200):</label>
+  <input type="file" id="image" name="image" accept="image/*" required>
+  <p>(Image must be exactly 300x200 pixels)</p>
+
+  <button type="submit">Submit</button>
+</form>
 
   <script type="module" src="/src/app.main.js"></script>
   <script src="/app/Navbar.js"></script>

@@ -5,6 +5,7 @@ import {app} from './app.main.js'
 export class DB {
    constructor() {
      this.parser = new Parser()
+     this.userDiv = document.getElementById('user-div')
    }
    
    // init
@@ -26,7 +27,7 @@ export class DB {
          this.post = document.createElement('div')
          this.post.className = 'post-container'
          this.post.innerHTML = this.parser.Parse(item)
-         document.body.append(this.post)
+         this.userDiv.append(this.post)
        })
      }else{
        return false
@@ -47,6 +48,7 @@ export class DB {
   async fetchRow_With_ID(data_id) {
      const { data: requested_item, error} = await this.supabase
         .from('Posts')
-        .select('*', data_id)
+        .select('*')
+        .eq('id', data_id)
    }
 }
