@@ -29,10 +29,10 @@ class App {
      // view management
      this.viewManager = new ViewManager(this.supabase)
      // storage initializing
-     this.storageManger = new StorageManager()
-     this.storageManger.init(this.supabase)
+     this.storageManger = new StorageManager(this.supabase)
      
      /* Functionality... */
+     
      // this will determine the auth state and fetch data based it
      this.db.DetermineAuthState()
    }
