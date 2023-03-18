@@ -9,7 +9,7 @@ A web app for posting local business advertisements for free (on the web app onl
 * [] Fetch data from routes
 * [] Auth roles (user/advertiser)
 * [x] Database setup
-* [] Image uploading and linking to posts
+* [x] Image uploading and linking to posts
 * ...more
 
 # Made with:

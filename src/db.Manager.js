@@ -11,7 +11,6 @@ export class DB {
    // init
    init(supabase) {
      this.supabase = supabase
-     
    }
    
    async DetermineAuthState() {
