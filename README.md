@@ -3,8 +3,8 @@ A web app for posting local business advertisements for free (on the web app onl
 
 # Things to implement
 * [x] Auth (Google)
-* [] Frontend
-* [] Routing
+* [x] Frontend
+* [x] Routing
 * [x] Auth with third party providers
 * [] Fetch data from routes
 * [] Auth roles (user/advertiser)
@@ -14,4 +14,7 @@ A web app for posting local business advertisements for free (on the web app onl
 
 # Made with:
 
-[Supabase](supabase.com)
+* [Supabase](https://supabase.com)
+* [Chat-gpt](https://chat.openai.com)
+* [page.js](page.js)
+* [Netlify](https://netlify.com)

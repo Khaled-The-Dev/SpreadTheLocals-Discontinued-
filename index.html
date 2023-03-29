@@ -33,24 +33,9 @@
 </nav>
 
 
-
-  <div id="user-div" style="display: none;" data-logged-in="true" data-Post="false">
-   <div class="post-container">
-  <div class="post-image">
-    <img src="https://placehold.it/300x200" alt="Post Image">
-  </div>
-  <div class="post-info">
-    <h2 class="post-title">Post Title</h2>
-    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod tortor eu ipsum consequat, vel consequat purus pharetra.</p>
-    <p class="post-address">123 Main St, Anytown USA</p>
-  </div>
+<div id="content">
+  
 </div>
-
-</div>
-<div class="container" data-logged-in="false" data-Post="false">
-		<h1>Log-in</h1>
-		<a href="#" id="login-button" class="google-btn">Login with Google</a>
-	</div>
 
 <form method="POST" enctype="multipart/form-data" data-Post="true" id="Post-Forum">
   <label for="title">Title:</label>
@@ -69,7 +54,12 @@
   <button type="submit">Submit</button>
 </form>
 
+
+
+
   <script type="module" src="/src/app.main.js"></script>
+  <script type="module" src="/lib/Router.js"></script>
+  <script type="module" src="/Pages/auth.js"></script>
   <script src="/app/Navbar.js"></script>
 </body>
 </html>

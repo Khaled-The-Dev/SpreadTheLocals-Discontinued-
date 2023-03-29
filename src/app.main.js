@@ -27,13 +27,10 @@ class App {
      this.db.init(this.supabase)
      
      // view management
-     this.viewManager = new ViewManager(this.supabase)
      // Post Manager
      this.postManager = new PostManager(this.supabase)
      /* Functionality... */
      
-     // this will determine the auth state and fetch data based it
-     this.db.DetermineAuthState()
    }
 }
 // initializing the app manager

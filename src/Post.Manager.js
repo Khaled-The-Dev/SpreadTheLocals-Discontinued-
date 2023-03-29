@@ -25,15 +25,17 @@ export class PostManager {
       .upload(Image.name, Image)
       
       // create a signed url
-      const { signedURL, error: signedUrlError } = await this.supabase.storage
+      const { data: signedURL, error: signedUrlError } = await this.supabase.storage
     .from('post-images')
-    .createSignedUrl(data.path, 1000 * 365 * 24 * 60 * 60 * 1000); // 1000 years in milliseconds
+    .createSignedUrl(data.path, 1000 * 365 * 24 * 60 * 60 * 1000);
+    console.log(signedURL.signedUrl);
+    // 1000 years in milliseconds
     
      const object = {
        Title: TitleValue,
        Description: DescriptionValue,
        Location: LocationValue,
-       ImageUrl: signedURL
+       ImageUrl: signedURL.signedUrl
      }
      
      this.Insert(object)
