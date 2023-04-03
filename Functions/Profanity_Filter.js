@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
    Send_To_Reviewer.append('description', FilteredData.description)
    
    
-   fetch('url', {
+   fetch('', {
      method: 'POST',
      body: Send_To_Reviewer,
    })
