@@ -1,4 +1,4 @@
-import {app} from '../src/app.main.js'
+import { app } from '../src/app.main.js'
 
 export async function HandleDynamicRoute(ctx) {
    const { params } = ctx

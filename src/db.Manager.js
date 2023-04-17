@@ -38,4 +38,12 @@ export class DB {
         
       return requested_item
    }
+   
+   //delete with id
+   async delete(id) {
+     const { data, error } = await this.supabase
+     .from('Posts')
+     .delete()
+     .eq('id', id)
+   }
 }
