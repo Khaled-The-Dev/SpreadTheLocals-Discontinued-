@@ -1,10 +1,15 @@
-import {AuthManager} from './Auth.Manager.js'
-import {Parser} from '/lib/Parser.js'
-import {app} from './app.main.js'
+/* Importing modules */
+import { AuthManager } from './Auth.Manager.js'
+import { Parser } from '/lib/Parser.js'
+import { app } from './app.main.js'
 
+// creating a database class
 export class DB {
    constructor() {
+     // creating an instance of the html parser
      this.parser = new Parser()
+     
+     // grabing the content div
      this.contentDiv = document.getElementById('content')
    }
    

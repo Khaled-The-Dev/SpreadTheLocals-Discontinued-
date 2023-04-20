@@ -22,12 +22,14 @@ exports.handler = async (event, context) => {
    Send_To_Reviewer.append('title', FilteredData.title)
    Send_To_Reviewer.append('description', FilteredData.description)
    
-   
+   /*
    fetch('', {
      method: 'POST',
      body: Send_To_Reviewer,
    })
+   */
    return {
-     status: 200
+     status: 200,
+     body: JSON.stringify(FilteredData)
    }
 }

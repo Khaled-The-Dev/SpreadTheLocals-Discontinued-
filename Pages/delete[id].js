@@ -6,7 +6,7 @@ export function HandleDeleteRoute(ctx) {
    const { params } = ctx
    // grabbing the parameters id
    const id = params.id
-   // deleting the request row
+   // deleting the requested row
    const { data, error } = app.db.delete()
    // error handling
    if (error) {
