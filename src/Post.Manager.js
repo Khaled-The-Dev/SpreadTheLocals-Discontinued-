@@ -1,53 +1,70 @@
+// Defining a class to manage posts
 export class PostManager {
-   constructor(supabase) {
-     this.supabase = supabase
-     this.forum = document.querySelector('#Post-Forum')
-     
-     // binding event listener
-     this.forum.addEventListener('submit', this.HandleSubmit.bind(this))
-   }
+  constructor(supabase) {
+    // Creating an instance of the supabase object and setting it as an instance variable
+    this.supabase = supabase
+    
+    // Getting a reference to the HTML form element for the post forum
+    this.forum = document.querySelector('#Post-Forum')
+    
+    // Binding the HandleSubmit method to the submit event of the forum element
+    this.forum.addEventListener('submit', this.HandleSubmit.bind(this))
+  }
    
-   async HandleSubmit(event) {
-     event.preventDefault()
-     // get input
-     const TitleValue = document.getElementById('title').value
-     
-     const DescriptionValue = document.getElementById('description').value
-     
-     const LocationValue = document.getElementById('location').value
-     
-     const Image = document.getElementById("image").files[0];
-      
-      //upload image
-      const {data, error} = await this.supabase
+  async HandleSubmit(event) {
+    // Preventing the default form submission behavior
+    event.preventDefault()
+    
+    // Retrieving values from input fields
+    let TitleValue = document.getElementById('title').value
+    let DescriptionValue = document.getElementById('description').value
+    const LocationValue = document.getElementById('location').value
+    const Image = document.getElementById("image").files[0];
+    
+    // Uploading the image to Supabase storage
+    const {data, error} = await this.supabase
       .storage
       .from('post-images')
       .upload(Image.name, Image)
       
-      // create a signed url
-      const { data: signedURL, error: signedUrlError } = await this.supabase.storage
-    .from('post-images')
-    .createSignedUrl(data.path, 1000 * 365 * 24 * 60 * 60 * 1000);
-    console.log(signedURL.signedUrl);
-    // 1000 years in milliseconds
+    // Creating a signed URL for the uploaded image
+    const { data: signedURL, error: signedUrlError } = await this.supabase.storage
+      .from('post-images')
+      .createSignedUrl(data.path, 1000 * 365 * 24 * 60 * 60 * 1000); // 1000 years in milliseconds
     
-     const object = {
-       Title: TitleValue,
-       Description: DescriptionValue,
-       Location: LocationValue,
-       ImageUrl: signedURL.signedUrl
-     }
-     
-     this.Insert(object)
-   }
+    console.log(signedURL.signedUrl);
+    // Profanity filtering
+    const ProfanityFilterUrl = `?Title=${TitleValue}& Description=${DescriptionValue}`
+    const res = await fetch(ProfanityFilterUrl, {
+       method: 'POST',
+       body: form
+    })
+    
+    const data = await res.json()
+    console.log(data);
+    // Creating an object to hold post data
+    /* 
+    const object = {
+      Title: TitleValue,
+      Description: DescriptionValue,
+      Location: LocationValue,
+      ImageUrl: signedURL.signedUrl // Setting the URL of the uploaded image as the ImageUrl property of the object
+    }
+    
+    // Inserting the post data into the Posts table in the Supabase database
+    this.Insert(object)
+    */
+  }
    
-   async Insert(object) {
-     const {data, error} = await this.supabase
-     .from('Posts')
-     .insert(object)
+  async Insert(object) {
+    // Inserting the object into the Posts table using the Supabase client
+    const {data, error} = await this.supabase
+      .from('Posts')
+      .insert(object)
      
-     if (error) {
-       throw new Error(error)
-     }
-   }
+    // Throwing an error if there was an error inserting the object
+    if (error) {
+      throw new Error(error)
+    }
+  }
 }
