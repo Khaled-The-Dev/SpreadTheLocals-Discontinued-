@@ -3,6 +3,9 @@ export class PostManager {
   constructor(supabase) {
     // Creating an instance of the supabase object and setting it as an instance variable
     this.supabase = supabase
+  }
+  
+  Init() {
     
     // Getting a reference to the HTML form element for the post forum
     this.forum = document.querySelector('#Post-Forum')
@@ -10,7 +13,6 @@ export class PostManager {
     // Binding the HandleSubmit method to the submit event of the forum element
     this.forum.addEventListener('submit', this.HandleSubmit.bind(this))
   }
-   
   async HandleSubmit(event) {
     // Preventing the default form submission behavior
     event.preventDefault()
@@ -40,8 +42,8 @@ export class PostManager {
        body: form
     })
     
-    const data = await res.json()
-    console.log(data);
+    const data2 = await res.json()
+    console.log(data2);
     // Creating an object to hold post data
     /* 
     const object = {
