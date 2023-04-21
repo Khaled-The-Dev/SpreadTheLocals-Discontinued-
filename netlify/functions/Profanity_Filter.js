@@ -1,15 +1,14 @@
 import fetch from 'node-fetch';
 import FormData from 'form-data'
+import { clean } from 'profanity-cleaner';
 
-let Filter = require('bad-words'),
-    filter = new Filter();
 
 exports.handler = async (event, context) => {
   
    const Title = event.queryStringParameters.title
    const Description = event.queryStringParameters.description
    
-   const FilteredTitle = filter.clean(Title)
+   const FilteredTitle = clean(Title)
    const FilteredDescription = filter.clean(Description)
    
    const FilteredData = {
