@@ -3,7 +3,7 @@ import FormData from 'form-data'
 import { clean } from 'profanity-cleaner';
 
 
-exports.handler = async (event, context) => {
+const handler = async (event, context) => {
   
    const Title = event.queryStringParameters.title
    const Description = event.queryStringParameters.description
@@ -34,3 +34,5 @@ exports.handler = async (event, context) => {
      body: JSON.stringify(FilteredData)
    }
 }
+
+export default handler
