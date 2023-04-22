@@ -27,6 +27,7 @@ const handler = async (event, context) => {
      body: Send_To_Reviewer,
    })
    */
+   console.log(JSON.stringify(FilteredData));
    return {
      statusCode: 200,
      body: JSON.stringify(FilteredData)
