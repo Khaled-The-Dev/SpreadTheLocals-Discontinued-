@@ -30,9 +30,9 @@ const handler = async (event, context) => {
    })
    */
    return {
-     status: 200,
+     statusCode: 200,
      body: JSON.stringify(FilteredData)
    }
 }
 
-export default handler
+export { handler }
