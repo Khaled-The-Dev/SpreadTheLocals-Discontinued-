@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
    const Description = event.queryStringParameters.description
    
    const FilteredTitle = clean(Title)
-   const FilteredDescription = filter.clean(Description)
+   const FilteredDescription = clean(Description)
    
    const FilteredData = {
      title: FilteredTitle,
