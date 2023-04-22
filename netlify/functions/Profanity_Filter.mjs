@@ -30,7 +30,7 @@ const handler = async (event, context) => {
    console.log(JSON.stringify(FilteredData));
    return {
      statusCode: 200,
-     body: JSON.stringify(FilteredData)
+     body: JSON.stringify(FilteredData),
    }
 }
 
