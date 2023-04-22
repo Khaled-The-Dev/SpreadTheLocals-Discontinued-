@@ -11,7 +11,7 @@ A web app for posting local business advertisements for free (on the web app onl
 * [x] Database setup
 * [x] Image uploading and linking to posts
 * [] See more button
-* [] Delete posts
+* [x] Delete posts
 * [] Edit posts
 
 # Made with:
