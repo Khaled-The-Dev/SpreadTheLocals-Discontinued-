@@ -23,11 +23,17 @@ export function HandleAuthRoute() {
   // Adding the HTML content for the login button to the AuthBtnContainer element
   AuthBtnContainer.innerHTML = `
 	<h1>Log-in</h1>
-	<button id="login-button" class="google-btn" type="submit">Login with Google</button>`
+	<button id="login-button" class="google-btn">Login with Google</button>`
 	
   // Appending the AuthBtnContainer element to the document body
   document.body.append(AuthBtnContainer)
 	
   // Adding a click event listener to the login button, which calls the signUpWithGoogle method of the authManager object
-  document.querySelector('#login-button').addEventListener('submit', authManager.signUpWithGoogle())
+   const LoginBtn = document.getElementById('login-button')
+      
+   AuthBtnContainer.addEventListener('click', (e) => {
+       if (event.target && event.target.id === 'login-button') {
+        authManager.signUpWithGoogle()
+      }
+    })
 }
